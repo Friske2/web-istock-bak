@@ -1,10 +1,8 @@
-import Todo from "./views/Todo";
+import { useRoutes } from "react-router-dom";
+import Routes from "./routes";
 function App() {
-  return (
-    <div>
-      <Todo></Todo>
-    </div>
-  );
+  const element = useRoutes(Routes);
+  return <div>{element}</div>;
 }
 
 export default App;
