@@ -1,8 +1,8 @@
-import React from "react";
+import Todo from "./views/Todo";
 function App() {
   return (
-    <div className="bg-black flex justify-center items-center min-h-screen text-white">
-      hello world
+    <div>
+      <Todo></Todo>
     </div>
   );
 }
