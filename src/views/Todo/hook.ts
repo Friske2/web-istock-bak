@@ -4,11 +4,12 @@ function useTodo(value: ItemsList[]) {
   let [items, setItems] = useState<ItemsList[]>(value);
   function addTodo(item: string) {
     const index: number = items.length + 1;
+    items.unshift({
+      id: index,
+      text: item,
+    })
     setItems(
-      items.concat({
-        id: index,
-        text: item,
-      })
+      [...items]
     );
   }
   function deleteTodo(id: number) {
