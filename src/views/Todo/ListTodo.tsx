@@ -1,6 +1,6 @@
 import { ItemsList } from "./interface";
 import { confirm } from "../../components/Modal";
-import { List, Typography, Button } from "antd";
+import { List, Tag, Button } from "antd";
 interface PropListTodo {
   funcDelete: (item: number) => void;
   items: ItemsList[];
@@ -13,15 +13,18 @@ function ListTodo(props: PropListTodo) {
       },
     });
   }
+  function isTag(index: number) {
+    if (index === 0) return <Tag color="success">New</Tag>;
+  }
   return (
     <List
       bordered
       dataSource={props.items}
-      renderItem={(item) => (
+      renderItem={(item, index) => (
         <List.Item>
           <div className="flex w-full justify-between">
             <div className="my-auto">
-              <Typography.Text mark>[New]</Typography.Text> {item.text}
+              {isTag(index)} {item.text}
             </div>
             <div>
               <Button
