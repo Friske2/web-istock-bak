@@ -1,6 +1,22 @@
-import { Link, Outlet, Navigate, useLocation } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import { Button } from "antd";
 function DefaultLayout() {
-  const isAuth = true;
+  const navigate = useNavigate();
+  let isAuth = false;
+  const user = sessionStorage.getItem("user");
+  if (user) {
+    isAuth = JSON.parse(user).username ? true : false;
+  }
+  function logout() {
+    sessionStorage.removeItem("user");
+    navigate("/login");
+  }
   const location = useLocation();
   if (isAuth) {
     return (
@@ -15,6 +31,9 @@ function DefaultLayout() {
             </li>
           </ul>
         </nav>
+        <Button type="primary" onClick={logout}>
+          logout
+        </Button>
         <Outlet />
       </div>
     );
