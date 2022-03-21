@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "../reducers/CouterSlice";
 import { Button } from "antd";
+import { useEffect } from "react";
+import { getMockApi } from "../services/api";
 interface StateCounter {
   counter: {
     value: number;
@@ -9,6 +11,12 @@ interface StateCounter {
 function Home() {
   const count = useSelector((state: StateCounter) => state.counter.value);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    getMockApi().then((data) => {
+      console.log(data);
+    });
+  });
 
   return (
     <div>
