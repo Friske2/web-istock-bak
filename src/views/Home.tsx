@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "../reducers/CouterSlice";
 import { Button } from "antd";
 import { useEffect } from "react";
-import { getMockApi } from "../services/api";
+import { getMockApi } from "../services/mock";
 interface StateCounter {
   counter: {
     value: number;
