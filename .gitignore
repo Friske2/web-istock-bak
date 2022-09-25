@@ -24,3 +24,5 @@ yarn-error.log*
 package-lock.json
 
 src/styles/tailwind.output.css
+
+.idea
